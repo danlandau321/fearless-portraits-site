@@ -2347,6 +2347,8 @@ input, select, textarea {
 	width: 30px;
 	height: 24px;
 	z-index: 10001;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
 }
 
 .menu-toggle span {

@@ -164,23 +164,24 @@
 			// Set copyright year
 			document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
-			// Hamburger menu toggle - using jQuery since it's already loaded
+			// Hamburger menu toggle - handle both click and touch events for mobile
 			$(document).ready(function() {
-				$('#menu-toggle').on('click', function(e) {
+				$('#menu-toggle').on('click touchstart', function(e) {
 					e.preventDefault();
 					e.stopPropagation();
+					console.log('Hamburger clicked/touched');
 					$(this).toggleClass('active');
 					$('#nav').toggleClass('active');
 				});
 
 				// Close menu when clicking a link
-				$('#nav a').on('click', function() {
+				$('#nav a').on('click touchstart', function() {
 					$('#menu-toggle').removeClass('active');
 					$('#nav').removeClass('active');
 				});
 
 				// Close menu when clicking outside
-				$(document).on('click', function(e) {
+				$(document).on('click touchstart', function(e) {
 					if (!$(e.target).closest('#nav, #menu-toggle').length) {
 						$('#menu-toggle').removeClass('active');
 						$('#nav').removeClass('active');
