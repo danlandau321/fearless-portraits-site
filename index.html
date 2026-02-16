@@ -146,7 +146,7 @@
 
 				<!-- Menu -->
 					<ul class="menu">
-						<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+						<li>&copy; <span id="copyright-year"></span> Dan Landau</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 					</ul>
 
 			</footer>
@@ -161,27 +161,31 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script>
-			// Hamburger menu toggle
-			document.addEventListener('DOMContentLoaded', function() {
-				var menuToggle = document.getElementById('menu-toggle');
-				var nav = document.getElementById('nav');
+			// Set copyright year
+			document.getElementById('copyright-year').textContent = new Date().getFullYear();
 
-				if (menuToggle && nav) {
-					menuToggle.addEventListener('click', function(e) {
-						e.preventDefault();
-						this.classList.toggle('active');
-						nav.classList.toggle('active');
-					});
+			// Hamburger menu toggle - using jQuery since it's already loaded
+			$(document).ready(function() {
+				$('#menu-toggle').on('click', function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					$(this).toggleClass('active');
+					$('#nav').toggleClass('active');
+				});
 
-					// Close menu when clicking a link
-					var navLinks = document.querySelectorAll('#nav a');
-					navLinks.forEach(function(link) {
-						link.addEventListener('click', function() {
-							menuToggle.classList.remove('active');
-							nav.classList.remove('active');
-						});
-					});
-				}
+				// Close menu when clicking a link
+				$('#nav a').on('click', function() {
+					$('#menu-toggle').removeClass('active');
+					$('#nav').removeClass('active');
+				});
+
+				// Close menu when clicking outside
+				$(document).on('click', function(e) {
+					if (!$(e.target).closest('#nav, #menu-toggle').length) {
+						$('#menu-toggle').removeClass('active');
+						$('#nav').removeClass('active');
+					}
+				});
 			});
 			</script>
 
