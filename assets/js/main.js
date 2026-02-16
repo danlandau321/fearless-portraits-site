@@ -126,8 +126,8 @@
 							leave:		function() { $(this).addClass('inactive'); }
 						});
 
-				// Generic sections.
-					$('.main.style1')
+				// Generic sections (except intro which should always be visible)
+					$('.main.style1:not(#intro)')
 						.scrollex({
 							mode:		'top',
 							delay:		0,
@@ -136,6 +136,9 @@
 							enter:		function() { $(this).removeClass('inactive'); },
 							leave:		function() { $(this).addClass('inactive'); }
 						});
+
+				// Intro section - always visible
+					$('#intro').removeClass('inactive');
 
 					$('.main.style2')
 						.scrollex({
@@ -167,7 +170,7 @@
 						.unscrollex();
 
 				// Generic sections.
-					$('.main.style1')
+					$('.main.style1:not(#intro)')
 						.unscrollex();
 
 					$('.main.style2')
