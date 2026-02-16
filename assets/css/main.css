@@ -2362,10 +2362,15 @@ input, select, textarea {
 
 @media screen and (max-width: 736px) {
 	.menu-toggle {
-		display: block;
+		display: block !important;
 		background: rgba(255, 255, 255, 0.975) !important;
-		padding: 0.5em;
-		border-radius: 4px;
+		padding: 0.5em !important;
+		border-radius: 4px !important;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+	}
+
+	.menu-toggle span {
+		background: #000 !important;
 	}
 
 	#header {
