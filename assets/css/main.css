@@ -2445,3 +2445,16 @@ input, select, textarea {
 #intro .button.arrow-only:hover {
 	background-color: transparent !important;
 }
+
+/* Intro background positioning for mobile */
+@media screen and (max-width: 736px) {
+	#intro {
+		background-position: top left, center center !important;
+	}
+}
+
+@media screen and (max-width: 736px) and (orientation: landscape) {
+	#intro {
+		background-position: top left, center center !important;
+	}
+}
