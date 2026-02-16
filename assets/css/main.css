@@ -2430,6 +2430,7 @@ input, select, textarea {
 
 	#header nav ul li a {
 		font-size: 1.2em !important;
+		color: #fff !important;
 	}
 
 	.menu-toggle.active span:nth-child(1) {
