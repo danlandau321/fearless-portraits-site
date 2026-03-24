@@ -12,14 +12,49 @@
 		<link rel="icon" type="image/png" href="images/favicon.png" />
 		<link rel="stylesheet" href="assets/css/main.css?v=17" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Custom styles for buy buttons */
+			#buy-book .button.style2 {
+				border-color: #98c593;
+				color: #3c3b3b;
+			}
+
+			#buy-book .button.style2:hover {
+				background-color: rgba(152, 197, 147, 0.125);
+			}
+
+			#buy-book .button.style2:active {
+				background-color: rgba(152, 197, 147, 0.25);
+			}
+
+			/* Make buttons stack vertically on smaller screens */
+			#buy-book ul.actions.special {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1em;
+			}
+
+			#buy-book ul.actions.special li {
+				flex: 1 1 auto;
+				min-width: 200px;
+			}
+
+			@media screen and (max-width: 600px) {
+				#buy-book ul.actions.special li {
+					flex: 1 1 100%;
+				}
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<header id="header">
 				<h1>
-					<a href="#intro"><img src="images/logo.jpg" alt="Logo" class="header-logo" style="height: 50px; vertical-align: middle;" /></a>
-					<span class="header-name" style="font-weight: 900; margin-left: 1em; vertical-align: middle;">Dan Landau</span>
+					<a href="#intro">
+						<img src="images/logo.jpg" alt="Logo" class="header-logo" style="height: 50px; vertical-align: middle;" />
+						<span class="header-name" style="font-weight: 900; margin-left: 1em; vertical-align: middle;">Dan Landau</span>
+					</a>
 				</h1>
 				<button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
 					<span></span>
@@ -92,9 +127,10 @@
 					<header>
 						<h2>Buy the Book</h2>
 					</header>
-					<p>Ready to meet these thirty-seven remarkable women? Available now.</p>
+					<p>Ready to meet these thirty-seven remarkable women? Available now in hardcover and on Amazon in paperback.</p>
 					<ul class="actions special">
-						<li><a href="https://www.amazon.com/Fearless-Portraits-Women-Dared-Transform/dp/B0GMNX4N43/ref=sr_1_1?crid=1NRR2011KWCOR&sprefix=fearless+portra%2Caps%2C139&sr=8-1" class="button large" target="_blank" rel="noopener noreferrer">Buy Now on Amazon</a></li>
+						<li><a href="https://shop.ingramspark.com/b/084?params=QTxOvkULoB9L9DqHoeCF1Fn27wyQS8N9NicilmgcP6k" class="button large" target="_blank" rel="noopener noreferrer">Buy hardcover</a></li>
+						<li><a href="https://www.amazon.com/Fearless-Portraits-Women-Dared-Transform/dp/B0GMNX4N43/ref=sr_1_1?crid=1NRR2011KWCOR&sprefix=fearless+portra%2Caps%2C139&sr=8-1" class="button large style2" target="_blank" rel="noopener noreferrer">Buy paperback</a></li>
 					</ul>
 				</div>
 				</section>
@@ -156,6 +192,33 @@
 			<script>
 			// Set copyright year
 			document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+			// Fix for nav links - make sections visible immediately when clicked
+			var scrollInterval;
+			$('a[href^="#"]').on('click', function(e) {
+				var target = $(this).attr('href');
+				var $target = $(target);
+
+				// Remove inactive class from target section and keep it removed during scroll
+				if ($target.length) {
+					// Clear any existing interval
+					if (scrollInterval) {
+						clearInterval(scrollInterval);
+					}
+
+					// Keep removing inactive class every 50ms during scroll animation
+					scrollInterval = setInterval(function() {
+						$target.removeClass('inactive');
+					}, 50);
+
+					// Stop after scroll animation completes (1500ms + buffer)
+					setTimeout(function() {
+						clearInterval(scrollInterval);
+						$target.removeClass('inactive');
+						$(window).trigger('scroll');
+					}, 1700);
+				}
+			});
 
 			// Hamburger menu toggle - handle both click and touch events for mobile
 			$(document).ready(function() {
