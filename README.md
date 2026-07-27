@@ -2,9 +2,9 @@
 
 ## What it is
 
-The website for *Fearless Portraits*, my book of hand-drawn ink portraits of 37 women
-who defied expectations and changed the world — revolutionaries, scientists, business
-leaders, artists, and activists. Each portrait is paired with a short biography.
+The website for *Fearless Portraits*, my book of hand-drawn ink portraits and vignette
+biographies of women who made an impact on the world — revolutionaries, scientists,
+business leaders, artists, and activists. Thirty-seven of them.
 
 It's a single-page site at [danlandau.net](https://danlandau.net) with a gallery of
 portraits from the book, links to buy it in hardcover and paperback, a bit about me,
