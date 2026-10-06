@@ -126,6 +126,18 @@
 							leave:		function() { $(this).addClass('inactive'); }
 						});
 
+				// Press & Praise cards.
+					$('#press .press-cards')
+						.scrollex({
+							top:		'30vh',
+							bottom:		'30vh',
+							delay:		0,
+							initialize:	function() { $(this).addClass('inactive'); },
+							terminate:	function() { $(this).removeClass('inactive'); },
+							enter:		function() { $(this).removeClass('inactive'); },
+							leave:		function() { $(this).addClass('inactive'); }
+						});
+
 				// Generic sections (except intro which should always be visible)
 					$('.main.style1:not(#intro)')
 						.scrollex({
@@ -167,6 +179,10 @@
 
 				// Galleries.
 					$('.gallery')
+						.unscrollex();
+
+				// Press & Praise cards.
+					$('#press .press-cards')
 						.unscrollex();
 
 				// Generic sections.

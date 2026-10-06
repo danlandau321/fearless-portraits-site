@@ -7,8 +7,8 @@ biographies of women who made an impact on the world — revolutionaries, scient
 business leaders, artists, and activists. Thirty-seven of them.
 
 It's a single-page site at [danlandau.net](https://danlandau.net) with a gallery of
-portraits from the book, links to buy it in hardcover and paperback, a bit about me,
-and a way to get in touch.
+portraits from the book, press coverage and reader reviews, links to buy it in hardcover
+and paperback, a bit about me, and a way to get in touch.
 
 ## Why I built it
 

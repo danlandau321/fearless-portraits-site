@@ -27,6 +27,161 @@
 				background-color: rgba(152, 197, 147, 0.25);
 			}
 
+			/* Press & Praise */
+			#press .content {
+				width: 72em;
+				max-width: 100%;
+				margin: 0 auto;
+				padding: 0 1.5em;
+			}
+
+			#press .press-cards {
+				display: grid;
+				grid-template-columns: 1.15fr 1.15fr 1fr;
+				grid-template-rows: auto auto;
+				gap: 1.5em;
+				text-align: left;
+			}
+
+			/* Cards 1 and 2 (articles) run the full height; 3 and 4 (reviews) stack on the right */
+			#press .press-card:nth-child(1),
+			#press .press-card:nth-child(2) {
+				grid-row: 1 / span 2;
+			}
+
+			#press .press-card {
+				display: flex;
+				flex-direction: column;
+				background: #ffffff;
+				border-top: solid 4px #98c593;
+				box-shadow: 0 1px 3px rgba(57, 69, 75, 0.08);
+				overflow: hidden;
+				transition: transform 1s ease, opacity 1s ease;
+				transform: translateY(0);
+				opacity: 1;
+			}
+
+			#press .press-cards.inactive .press-card {
+				transform: translateY(2em);
+				opacity: 0;
+			}
+
+			#press .press-card:nth-child(2) { transition-delay: 0.15s; }
+			#press .press-card:nth-child(3) { transition-delay: 0.3s; }
+			#press .press-card:nth-child(4) { transition-delay: 0.45s; }
+
+			#press .press-image {
+				display: block;
+				aspect-ratio: 3 / 2;
+				overflow: hidden;
+				border-bottom: 0;
+			}
+
+			#press .press-image img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: 50% 30%;
+				transition: transform 0.4s ease;
+			}
+
+			#press .press-image:hover img {
+				transform: scale(1.03);
+			}
+
+			#press .press-body {
+				display: flex;
+				flex-direction: column;
+				flex: 1 1 auto;
+				padding: 1.75em 2em 2em 2em;
+			}
+
+			#press .press-card.review .press-body {
+				padding: 1.5em 1.75em 1.75em 1.75em;
+			}
+
+			#press .press-stars {
+				color: #f0a33a;
+				font-size: 1.1em;
+				letter-spacing: 0.1em;
+				line-height: 1;
+				margin-bottom: 0.75em;
+			}
+
+			#press blockquote {
+				border: 0;
+				padding: 0;
+				margin: 0 0 1.25em 0;
+				font-style: italic;
+				flex: 1 1 auto;
+			}
+
+			#press .press-card.review blockquote {
+				margin-bottom: 0;
+			}
+
+			#press .press-card.review blockquote + .press-more {
+				margin-top: 1.25em;
+			}
+
+			#press blockquote p {
+				margin-bottom: 1em;
+			}
+
+			#press .press-card.review blockquote p {
+				margin-bottom: 0.75em;
+			}
+
+			#press cite {
+				display: block;
+				font-style: normal;
+				font-weight: 700;
+				font-size: 0.9em;
+			}
+
+			#press cite span {
+				display: block;
+				font-weight: 400;
+				color: #6b767c;
+			}
+
+			#press .press-more {
+				align-self: flex-start;
+				font-weight: 700;
+				font-size: 0.9em;
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+				color: #39454b;
+				border-bottom: solid 2px #98c593;
+				padding-bottom: 0.15em;
+			}
+
+			#press .press-more:hover {
+				color: #98c593;
+			}
+
+			/* Tablet: articles side by side, reviews side by side underneath */
+			@media screen and (max-width: 1000px) {
+				#press .press-cards {
+					grid-template-columns: 1fr 1fr;
+				}
+				#press .press-card:nth-child(1),
+				#press .press-card:nth-child(2) {
+					grid-row: auto;
+				}
+			}
+
+			/* Phone: one column */
+			@media screen and (max-width: 736px) {
+				#press .press-cards {
+					grid-template-columns: 1fr;
+				}
+				#press .press-body {
+					padding: 1.5em;
+				}
+			}
+
 			/* Make buttons stack vertically on smaller screens */
 			#buy-book ul.actions.special {
 				display: flex;
@@ -86,6 +241,7 @@
 					</header>
 					<p>History has always belonged to those brave enough to rewrite it.</p>
 					<p>Fearless Portraits features hand-drawn ink portraits paired with biographical narratives about women who defied expectations, challenged authority, and changed the world in some large or small way. Revolutionaries, business leaders, scientists, artists and activists. Some names you know. Others were buried by history, their contributions obscured or stolen. All faced obstacles designed to silence them—and persisted anyway.</p>
+
 				</div>
 				</section>
 
@@ -119,6 +275,70 @@
 							</article>
 						</div>
 
+				</div>
+				</section>
+
+		<!-- Press & Praise -->
+			<section id="press" class="main style3 secondary">
+				<div class="content">
+					<header>
+						<h2>Press &amp; Praise</h2>
+						<p>Press coverage and reader reviews of Fearless Portraits.</p>
+					</header>
+
+					<div class="press-cards">
+
+						<!-- Bridgewater City Lifestyle -->
+						<article class="press-card">
+							<a href="https://citylifestyle.com/articles/style-that-inspires" class="press-image" target="_blank" rel="noopener noreferrer">
+								<img src="images/press/city-lifestyle.jpg" alt="The Style That Inspires feature spread in Bridgewater City Lifestyle magazine" loading="lazy" />
+							</a>
+							<div class="press-body">
+								<blockquote>
+									<p>“The project isn’t simply about celebrating history—it’s about inspiring future generations to imagine new possibilities for themselves.”</p>
+									<cite>Brooke Boyer<span>Bridgewater City Lifestyle</span></cite>
+								</blockquote>
+								<a href="https://citylifestyle.com/articles/style-that-inspires" class="press-more" target="_blank" rel="noopener noreferrer">Read the article</a>
+							</div>
+						</article>
+
+						<!-- TAPinto Bridgewater-Raritan -->
+						<article class="press-card">
+							<a href="https://www.tapinto.net/towns/bridgewater-slash-raritan/sections/arts-and-entertainment/articles/bridgewater-man-writes-book-featuring-successful-women" class="press-image" target="_blank" rel="noopener noreferrer">
+								<img src="images/press/tapinto.jpg" alt="Newspaper article headlined Bridgewater Man Writes Book Featuring Successful Women, next to a cup of coffee" loading="lazy" />
+							</a>
+							<div class="press-body">
+								<blockquote>
+									<p>“The women featured were selected to represent the full range of what incredible can look like.”</p>
+									<cite>Audrey Levine Blumberg<span>TAPinto Bridgewater-Raritan</span></cite>
+								</blockquote>
+								<a href="https://www.tapinto.net/towns/bridgewater-slash-raritan/sections/arts-and-entertainment/articles/bridgewater-man-writes-book-featuring-successful-women" class="press-more" target="_blank" rel="noopener noreferrer">Read the article</a>
+							</div>
+						</article>
+
+						<!-- Reader quote -->
+						<article class="press-card review">
+							<div class="press-body">
+								<blockquote>
+									<p>“A fun gift for the feminist who has everything.”</p>
+									<cite>Lauren A.<span>Reader</span></cite>
+								</blockquote>
+							</div>
+						</article>
+
+						<!-- Amazon review -->
+						<article class="press-card review">
+							<div class="press-body">
+								<div class="press-stars" aria-label="Five out of five stars">★★★★★</div>
+								<blockquote>
+									<p>“Amazing detail of the most amazing trailblazers! Terrific for encouraging young women and girls to develop aspirational identities!”</p>
+									<cite>Todd Alexander<span>Amazon review</span></cite>
+								</blockquote>
+								<a href="https://www.amazon.com/dp/B0GMNX4N43" class="press-more" target="_blank" rel="noopener noreferrer">See the book on Amazon</a>
+							</div>
+						</article>
+
+					</div>
 				</div>
 				</section>
 
@@ -200,7 +420,7 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="assets/js/main.js?v=3"></script>
 			<script>
 			// Set copyright year
 			document.getElementById('copyright-year').textContent = new Date().getFullYear();
