@@ -138,10 +138,13 @@
 							leave:		function() { $(this).addClass('inactive'); }
 						});
 
-				// Generic sections (except intro which should always be visible)
+				// Generic sections (except intro which should always be visible).
+				// Content shows once ~25% of the section is on screen, so direct
+				// links (#about-book etc.) and partial scrolls both reveal it.
 					$('.main.style1:not(#intro)')
 						.scrollex({
-							mode:		'top',
+							top:		'25vh',
+							bottom:		'25vh',
 							delay:		0,
 							initialize:	function() { $(this).addClass('inactive'); },
 							terminate:	function() { $(this).removeClass('inactive'); },
@@ -154,7 +157,8 @@
 
 					$('.main.style2')
 						.scrollex({
-							mode:		'top',
+							top:		'25vh',
+							bottom:		'25vh',
 							delay:		0,
 							initialize:	function() { $(this).addClass('inactive'); },
 							terminate:	function() { $(this).removeClass('inactive'); },
@@ -165,7 +169,7 @@
 				// Contact.
 					$('#contact')
 						.scrollex({
-							top:		'50%',
+							top:		'25%',
 							delay:		0,
 							initialize:	function() { $(this).addClass('inactive'); },
 							terminate:	function() { $(this).removeClass('inactive'); },
